@@ -1,0 +1,154 @@
+:root
+  --lightGray: hsl(0, 0%, 81%)
+  --lightGrayisBlue: hsl(210, 46%, 95%)
+  --moderateViolet: hsl(263, 55%, 52%)
+  --veryDarkGrayishBlue: hsl(217, 19%, 35%)
+  --veryDarkBlackishBlue: hsl(219, 29%, 14%)
+  --fullWhite: #fff
+
+*
+  box-sizing: border-box
+  margin: 0
+  padding: 0
+
+:where(body, html)
+  background: var(--lightGrayisBlue)
+  height: 100%
+  float: left
+  font-size: 13px
+  width: 100%
+
+main
+  display: grid
+  height: 100%
+  place-items: center
+  min-height: 100vh
+  width: 100%
+
+  .main__container
+    display: grid
+    grid-template-columns: 1fr
+    max-width: 1240px
+    padding: 60px 30px
+    row-gap: 30px
+
+
+/*
+ * 0. Testimonial card
+ */
+.main__columnsTestimonials
+  column-gap: 30px
+  display: flex
+  flex-direction: column
+  row-gap: 30px
+
+  .main__leftTestimonials
+    display: flex
+    flex-direction: column
+    row-gap: 30px
+
+    .main__firstRowTestimonials,
+    .main__secondRowTestionials
+      display: flex
+      flex-direction: column
+      row-gap: 30px
+
+.main__testimonialCardContainer
+  border-radius: 8px
+  color: #fff
+  display: flex
+  flex-direction: column
+  padding: 24px 30px 34px
+  row-gap: 16px
+  width: 100%
+
+  &.main__testimonialCardContainer--violet
+    background-color: var(--moderateViolet)
+
+  &.main__testimonialCardContainer--darkGrayishBlue
+    background-color: var(--veryDarkGrayishBlue)
+
+  &.main__testimonialCardContainer--fullWhite
+    background-color: var(--fullWhite)
+    color: var(--veryDarkBlackishBlue)
+
+  &.main__testimonialCardContainer--darkBlackishBlue
+    background-color: var(--veryDarkBlackishBlue)
+
+  &.main__testimonialCardContainer--quoted
+    background-image: url('/images/bg-pattern-quotation.svg')
+    background-repeat: no-repeat
+    background-position: top right 30px
+
+  .testimonialCardContainer__cardTestimonial
+    align-items: center
+    display: flex
+    width: 100%
+
+    img
+      border: 2px solid rgba(255, 255, 255, 0.5)
+      border-radius: 50%
+
+    .testimonialCardContainer__testimonialInfo
+      display: flex
+      flex-direction: column
+      margin-left: 15px
+      row-gap: 2px
+
+      p
+        opacity: 1
+
+      span
+        opacity: 0.5
+
+  h3
+    font-size: 22px
+    font-weight: 600
+    line-height: 24px
+
+  p
+    opacity: 0.5
+    font-size: 15px
+    line-height: 20px
+
+
+// Table size
+@media (min-width: 640px)
+  .main__columnsTestimonials
+
+    .main__leftTestimonials
+      column-gap: 30px
+      flex-direction: row
+      order: 2
+
+
+//Desktop size
+@media (min-width: 1024px)
+  .main__columnsTestimonials
+    flex-direction: row
+
+    .main__leftTestimonials
+      flex: 0 0 70%
+      flex-direction: column
+      order: unset
+      row-gap: 24px
+
+      .main__firstRowTestimonials
+        column-gap: 30px
+        flex-direction: row
+
+        .main__testimonialCardContainer
+          width: 33%
+
+          &:first-child
+            width: 66%
+
+      .main__secondRowTestionials
+        column-gap: 30px
+        flex-direction: row
+
+        .main__testimonialCardContainer
+          width: 66%
+
+          &:first-child
+            width: 33%
